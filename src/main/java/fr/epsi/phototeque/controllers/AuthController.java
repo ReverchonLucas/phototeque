@@ -23,7 +23,7 @@ public class AuthController {
         if (user == null || !user.getPassword().equals(authRequest.getPassword())) {
             return "Pseudo ou mot de passe incorrect.";
         }
-        if (user.isBlock()) {
+        if (user.isBlocked()) {
             return "L'utilisateur est bloqué.";
         }
         return jwtService.generateToken(authRequest.getPseudo());

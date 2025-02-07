@@ -25,7 +25,7 @@ public class User {
     private boolean admin;
 
     @Column(nullable = false)
-    private boolean block;
+    private boolean blocked;
 
     public int getId() {return id;}
     public void setId(int id) {this.id = id;}
@@ -39,6 +39,6 @@ public class User {
     public void setPassword(String password) {this.password = password;}
     public boolean isAdmin() {return admin;}
     public void setAdmin(boolean admin) {this.admin = admin;}
-    public boolean isBlock() {return block;}
-    public void setBlock(boolean block) {this.block = block;}
+    public boolean isBlocked() {return blocked;}
+    public void setBlocked(boolean blocked) {this.blocked = blocked;}
 }

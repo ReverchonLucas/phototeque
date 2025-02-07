@@ -14,15 +14,15 @@ public class Image {
     @JoinColumn(name = "id_user", nullable = false)
     private User user;
 
-    @Lob
-    @Column(nullable = false)
-    private byte[] image;
-
     @Column(nullable = false, columnDefinition = "TEXT")
     private String nom;
 
-    @Column(nullable = false, length = 50)
-    private String categorie;
+    @ManyToOne
+    @JoinColumn(name = "categorie", nullable = false)
+    private Categorie categorie;
+
+    @Column(nullable = false, columnDefinition = "TEXT")
+    private String description;
 
     @Column(nullable = false)
     private int taille;
@@ -34,6 +34,9 @@ public class Image {
     @Temporal(TemporalType.DATE)
     @Column(nullable = false)
     private Date dateModif;
+
+    @Column(nullable = false)
+    private int nbTelechargement;
 
     @Column(nullable = false, columnDefinition = "TEXT")
     private String listeElements;
@@ -48,19 +51,20 @@ public class Image {
     public void setId(int id) {this.id = id;}
     public User getUser() {return user;}
     public void setUser(User user) {this.user = user;}
-    public byte[] getImage() {return image;}
-    public void setImage(byte[] image) {this.image = image;}
     public String getNom() {return nom;}
     public void setNom(String nom) {this.nom = nom;}
-    public String getCategorie() {return categorie;}
-    public void setCategorie(String categorie) {this.categorie = categorie;}
+    public Categorie getCategorie() {return categorie;}
+    public void setCategorie(Categorie categorie) {this.categorie = categorie;}
+    public String getDescription() {return description;}
+    public void setDescription(String description) {this.description = description;}
     public int getTaille() {return taille;}
-
     public void setTaille(int taille) {this.taille = taille;}
     public Date getDateCreation() {return dateCreation;}
     public void setDateCreation(Date dateCreation) {this.dateCreation = dateCreation;}
     public Date getDateModif() {return dateModif;}
     public void setDateModif(Date dateModif) {this.dateModif = dateModif;}
+    public int getNbTelechargement() {return nbTelechargement;}
+    public void setNbTelechargement(int nbTelechargement) {this.nbTelechargement = nbTelechargement;}
     public String getListeElements() {return listeElements;}
     public void setListeElements(String listeElements) {this.listeElements = listeElements;}
     public boolean isIndividu() {return individu;}

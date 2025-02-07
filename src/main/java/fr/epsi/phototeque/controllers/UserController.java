@@ -25,7 +25,7 @@ public class UserController {
         user.setPassword(userRequest.getPassword());
 
         user.setAdmin(false);
-        user.setBlock(false);
+        user.setBlocked(false);
 
         return userService.addUser(user);
     }

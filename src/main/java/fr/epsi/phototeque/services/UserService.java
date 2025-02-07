@@ -16,7 +16,6 @@ public class UserService {
 
     @Autowired
     private UserRepository userRepository;
-
     @Autowired
     private JwtService jwtService;
 
@@ -40,7 +39,7 @@ public class UserService {
             if (targetUser == null) {
                 return "Utilisateur cible introuvable.";
             }
-            targetUser.setBlock(true);
+            targetUser.setBlocked(true);
             userRepository.save(targetUser);
             return "Utilisateur " + targetPseudo + " bloqué avec succès.";
         } else { return "Problème de token. Soit l'utilisateur n'a pas les droits de faire " +
